@@ -76,12 +76,14 @@ WSGI_APPLICATION = "tracker.wsgi.application"
 
 # Continue using SQLite locally.
 
+
+# Database
+# Use SQLite for the free demo deployment.
 DATABASES = {
-"default": dj_database_url.config(
-default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
-conn_max_age=600,
-ssl_require=not DEBUG,
-)
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
 
 # Password validation
